@@ -13,6 +13,8 @@ interface MenuItem {
 })
 export class SidemenuComponent {
 
+
+
   templateMenu: MenuItem[] = [
     {
     text: 'Basics',
@@ -44,6 +46,7 @@ export class SidemenuComponent {
   ]
 
   constructor() { }
- 
+
+
 
 }
