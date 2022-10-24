@@ -27,8 +27,13 @@
             
             <div class="input-group">
                 <input class="form-control" 
-                    placeholder="Add favorites" >
-                    <button class="btn btn-outline-primary" type="button">
+                    placeholder="Add favorites"
+                    [(ngModel)]="newGame"
+                    name="newGame" 
+                    (keyup.enter)="addGame()">
+                    <button class="btn btn-outline-primary"
+                            type="button"
+                            (click)="addGame()">
                         Add
                     </button>
             </div>
@@ -51,7 +56,8 @@
                         class="form-control"> 
 
                         <button class="btn btn-outline-danger"
-                                (click)="removeItem(i)">
+                                (click)="removeItem(i)"
+                                type="button">
                             Remove
                         </button>
                         

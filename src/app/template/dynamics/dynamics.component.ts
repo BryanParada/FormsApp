@@ -18,6 +18,8 @@ interface Favorite{
 })
 export class DynamicsComponent implements OnInit {
 
+  newGame: string = '';
+
   person: Person = {
     name: 'Bryan',
     favorites: [
@@ -25,7 +27,7 @@ export class DynamicsComponent implements OnInit {
     {id: 2,name: 'Death Stranding'},
     ] 
   };
-
+ 
   constructor() { }
 
   ngOnInit(): void {
@@ -37,8 +39,23 @@ export class DynamicsComponent implements OnInit {
   }
 
   removeItem(index: number){
+  console.log('Removed');
 
     this.person.favorites.splice(index, 1);
   }
+
+  addGame(){
+    console.log('Added');
+    
+    const newFavorite: Favorite = { 
+      id  : this.person.favorites.length + 1,
+      name: this.newGame
+    }
+
+    this.person.favorites.push({...newFavorite});
+    this.newGame = '';
+
+  }
+
 
 }
