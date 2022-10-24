@@ -77,23 +77,35 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col">
-
-        <span>Valid - Campos Required de Html seran validados</span>
-        <pre>{{myform.valid}}</pre>
-
-        <span>Pristine - Si no se han cambiado los valores iniciales del formulario</span>
-        <pre>{{myform.pristine}}</pre>
-
-        <span>Touched - Si usuario ha tocado el formulario</span>
-        <pre>{{myform.touched}}</pre>
+<hr>
+<div class="card">
+    
+    <div class="card-body">
+      <h5 class="card-title">Json Results</h5>
+      <div class="card-text">
         
-        <span>Value</span>
-        <pre>{{myform.value | json}}</pre>
 
-        <span>CustomDirective</span>
-        <pre>{{myform.controls['stock'].errors | json}}</pre>
+        <div class="row">
+            <div class="col">
+        
+                <span>Valid - Campos Required de Html seran validados</span>
+                <pre>{{myform.valid}}</pre>
+        
+                <span>Pristine - Si no se han cambiado los valores iniciales del formulario</span>
+                <pre>{{myform.pristine}}</pre>
+        
+                <span>Touched - Si usuario ha tocado el formulario</span>
+                <pre>{{myform.touched}}</pre>
+                
+                <span>Value</span>
+                <pre>{{myform.value | json}}</pre>
+        
+                <span>CustomDirective</span>
+                <pre>{{myform.controls['stock'].errors | json}}</pre>
+        
+            </div>
+        </div>
 
+      </div> 
     </div>
-</div>
+  </div>
