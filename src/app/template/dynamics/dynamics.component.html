@@ -1,1 +1,63 @@
-<p>dynamics works!</p>
+<h2>Template: <small>Dinamics</small></h2>
+<hr>
+
+<form (ngSubmit)="save()"
+        autocomplete="off"
+        #myDynamicform="ngForm">
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-9">
+            <input class="form-control" 
+                    placeholder="Name of the person"
+                    ngModel
+                    name="nameF"
+                    required>
+                    <span class="form-text text-danger" 
+                            *ngIf="myDynamicform.controls['nameF']?.invalid && myDynamicform.controls['nameF']?.touched">This field is required</span>
+        </div>
+    </div>
+
+<!-- Add Favorite -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Add</label>
+        <div class="col-sm-9">
+
+            
+            <div class="input-group">
+                <input class="form-control" 
+                    placeholder="Add favorites" >
+                    <button class="btn btn-outline-primary" type="button">
+                        Add
+                    </button>
+            </div>
+                
+        </div>
+    </div>
+
+    <!-- Favorite games list -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Favorites</label>
+        <div class="col-sm-9">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+                    
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row"> 
+        <div class="col-sm-12">
+        <button type="button"
+                class="btn btn-primary float-end"
+                [disabled]="myDynamicform.invalid"
+                (click)="save()"> Save </button>
+        </div>
+    </div>
+
+</form>
