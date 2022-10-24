@@ -12,13 +12,20 @@
                 <label class="col-sm-3 col-form-label">Product</label>
 
                 <div class="col-sm-9">
+
+
                     <input type="text"
                     class="form-control"
                     ngModel
                     name="product"
                     placeholder="Name of the product"
-                    required>
-                    <span class="form-text text-danger">Must be 3 letters</span>
+                    required
+                    minlength="3">
+
+
+                    <span class="form-text text-danger"
+                          *ngIf="myform.controls['product']?.invalid && myform.controls['product']?.touched" 
+                            >Must be 3 letters</span>
                 </div>
             </div>
             <!-- Campo precio -->
@@ -64,8 +71,14 @@
 <div class="row">
     <div class="col">
 
-        <span>Valid</span>
+        <span>Valid - Campos Required de Html seran validados</span>
         <pre>{{myform.valid}}</pre>
+
+        <span>Pristine - Si no se han cambiado los valores iniciales del formulario</span>
+        <pre>{{myform.pristine}}</pre>
+
+        <span>Touched - Si usuario ha tocado el formulario</span>
+        <pre>{{myform.touched}}</pre>
         
         <span>Value</span>
         <pre>{{myform.value | json}}</pre>
