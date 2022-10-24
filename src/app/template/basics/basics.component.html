@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col">
 
-        <form>
+        <form (ngSubmit)="save(myform)" #myform="ngForm" autocomplete="off">
             <!-- Campo de producto -->
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Product</label>
@@ -14,7 +14,10 @@
                 <div class="col-sm-9">
                     <input type="text"
                     class="form-control"
-                    placeholder="Name of the product">
+                    ngModel
+                    name="product"
+                    placeholder="Name of the product"
+                    required>
                     <span class="form-text text-danger">Must be 3 letters</span>
                 </div>
             </div>
@@ -25,7 +28,11 @@
                 <div class="col-sm-9">
                     <input type="number"
                     class="form-control"
-                    placeholder="Price of the product"> 
+                    ngModel
+                    name="price"
+                    placeholder="Price of the product"
+                    min="0"
+                    > 
                 </div>
             </div>
             <!-- Existencias de producto -->
@@ -35,6 +42,8 @@
                 <div class="col-sm-9">
                     <input type="number"
                     class="form-control"
+                    ngModel
+                    name="stock"
                     placeholder="Product stock"> 
                 </div>
             </div>
@@ -49,5 +58,17 @@
             </div>
 
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <span>Valid</span>
+        <pre>{{myform.valid}}</pre>
+        
+        <span>Value</span>
+        <pre>{{myform.value | json}}</pre>
+
     </div>
 </div>
