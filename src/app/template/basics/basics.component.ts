@@ -19,6 +19,7 @@ export class BasicsComponent implements OnInit {
   save(){
     console.log(this.myFormTemplate);
     
+
   }
   // save(myform: NgForm){
   //   console.log(myform );
@@ -29,6 +30,11 @@ export class BasicsComponent implements OnInit {
     // Debido a que no se ha terminado de inizializar la propiedad myFormTemplate, se colocará el signo ? 
     // para preguntar "si es que existe"
     return this.myFormTemplate?.controls['product']?.invalid && this.myFormTemplate?.controls['product']?.touched;
+  }
+
+  priceValid(): boolean{
+    // this.myFormTemplate?.controls['price']?.setErrors({'price': true});
+    return this.myFormTemplate?.controls['price']?.value < 0 && this.myFormTemplate?.controls['product']?.touched;
   }
 
 
