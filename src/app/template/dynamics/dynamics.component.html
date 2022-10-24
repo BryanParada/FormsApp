@@ -4,12 +4,14 @@
 <form (ngSubmit)="save()"
         autocomplete="off"
         #myDynamicform="ngForm">
+
+        <!-- Name -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-9">
             <input class="form-control" 
                     placeholder="Name of the person"
-                    ngModel
+                    [ngModel]="person.name"
                     name="nameF"
                     required>
                     <span class="form-text text-danger" 
@@ -38,11 +40,11 @@
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favorites</label>
         <div class="col-sm-9">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
-            <input class="form-control mb-1">
+            <input *ngFor="let game of person.favorites; let i = index" 
+                    [(ngModel)]="game.name"
+                    name="favorite_{{ i }}"
+                    required
+                    class="form-control mb-1"> 
                     
         </div>
     </div>
@@ -61,3 +63,10 @@
     </div>
 
 </form>
+
+
+<span>
+    Person
+</span>
+
+<pre>{{ person | json }}</pre>
