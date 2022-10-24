@@ -36,4 +36,9 @@ export class DynamicsComponent implements OnInit {
     
   }
 
+  removeItem(index: number){
+
+    this.person.favorites.splice(index, 1);
+  }
+
 }
