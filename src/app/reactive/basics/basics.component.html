@@ -1,3 +1,102 @@
 <!-- Se procura que el html sea lo mas simple posible, y la mayor logica estará en el componente asociado -->
 
-<p>basics works!</p>
+<!-- Mayor parte de la logica se encuentra en el template de html, aproximacion de template -->
+
+<h2>Reactive: Basics</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form  
+                autocomplete="off">
+            <!-- Campo de producto -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Product</label>
+
+                <div class="col-sm-9">
+
+
+                    <input type="text"
+                    class="form-control"  
+                    placeholder="Name of the product"
+                    required
+                    minlength="3">
+
+
+                    <span class="form-text text-danger" 
+                            >Must be 3 letters</span>
+                </div>
+            </div>
+            <!-- Campo precio -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Price</label>
+
+                <div class="col-sm-9">
+                    <input type="number"
+                    class="form-control"  
+                    placeholder="Price of the product" 
+                    > 
+                    <span class="form-text text-danger" 
+                        >Price must be greater than or equal to 0.</span>
+                </div>
+            </div>
+            <!-- Existencias de producto -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Stock</label>
+
+                <div class="col-sm-9">
+                    <input type="number"
+                    class="form-control"   
+                    placeholder="Product stock"
+                    required> 
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" 
+                            class="btn btn-primary float-end">
+                            Save
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<hr>
+
+<!-- 
+<div class="card">
+    
+    <div class="card-body">
+      <h5 class="card-title">Json Results</h5>
+      <div class="card-text">
+        
+
+        <div class="row">
+            <div class="col">
+        
+                <span>Valid - Campos Required de Html seran validados</span>
+                <pre>{{myform.valid}}</pre>
+        
+                <span>Pristine - Si no se han cambiado los valores iniciales del formulario</span>
+                <pre>{{myform.pristine}}</pre>
+        
+                <span>Touched - Si usuario ha tocado el formulario</span>
+                <pre>{{myform.touched}}</pre>
+                
+                <span>Value</span>
+                <pre>{{myform.value | json}}</pre>
+        
+                <span>CustomDirective</span>
+                <pre>{{myform.controls['stock'].errors | json}}</pre>
+        
+            </div>
+        </div>
+
+      </div> 
+    </div>
+  </div> -->
