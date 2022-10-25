@@ -24,10 +24,13 @@
             
             <div class="input-group">
                 <input class="form-control" 
+                    [formControl]="newFavorite"
                     placeholder="Add favorites" 
-                    name="newGame"  >
+                    (keyup.enter)="addFavorite()"
+                      >
                     <button class="btn btn-outline-primary"
                             type="button"
+                            (click)="addFavorite()"
                              >
                         Add
                     </button>
@@ -87,12 +90,10 @@
 
 <span>Value</span>
 <pre>{{ myFormDynamics.value | json}}</pre>
-<!-- <span>
-    Person
-</span>
 
-<pre>{{ person | json }}</pre>
- -->
+<span>Add Game</span>
+<pre>{{ newFavorite.valid }}</pre> 
+<pre>{{ newFavorite.value }}</pre>
 
         </div> 
     </div>
