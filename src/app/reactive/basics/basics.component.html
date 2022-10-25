@@ -8,8 +8,7 @@
 <div class="row">
     <div class="col">
 
-        <form  
-                autocomplete="off">
+        <form autocomplete="off" [formGroup]="myForm">
             <!-- Campo de producto -->
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Product</label>
@@ -19,8 +18,8 @@
 
                     <input type="text"
                     class="form-control"  
-                    placeholder="Name of the product"
-                    required
+                    placeholder="Name of the product" 
+                    formControlName="name"
                     minlength="3">
 
 
@@ -68,7 +67,7 @@
 
 <hr>
 
-<!-- 
+
 <div class="card">
     
     <div class="card-body">
@@ -80,23 +79,23 @@
             <div class="col">
         
                 <span>Valid - Campos Required de Html seran validados</span>
-                <pre>{{myform.valid}}</pre>
+                <pre>{{myForm.valid}}</pre>
         
                 <span>Pristine - Si no se han cambiado los valores iniciales del formulario</span>
-                <pre>{{myform.pristine}}</pre>
+                <pre>{{myForm.pristine}}</pre>
         
                 <span>Touched - Si usuario ha tocado el formulario</span>
-                <pre>{{myform.touched}}</pre>
+                <pre>{{myForm.touched}}</pre>
                 
                 <span>Value</span>
-                <pre>{{myform.value | json}}</pre>
+                <pre>{{myForm.value | json}}</pre>
         
                 <span>CustomDirective</span>
-                <pre>{{myform.controls['stock'].errors | json}}</pre>
+                <pre>{{myForm.controls['stock'].errors | json}}</pre>
         
             </div>
         </div>
 
       </div> 
     </div>
-  </div> -->
+  </div>
