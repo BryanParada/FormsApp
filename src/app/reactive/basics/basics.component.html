@@ -23,6 +23,7 @@
 
 
                     <span class="form-text text-danger" 
+                          *ngIf="InvalidField( 'name' )"
                             >Must be 3 letters</span>
                 </div>
             </div>
@@ -36,9 +37,10 @@
                     <input type="number"
                     class="form-control"  
                     placeholder="Price of the product" 
-                    formControlName="price"
+                    formControlName="price" 
                     > 
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" 
+                          *ngIf="InvalidField( 'price' )">
                         Price must be greater than or equal to 0.</span>
 
                 </div>
@@ -52,7 +54,10 @@
                     <input type="number"
                     class="form-control"   
                     placeholder="Product stock"
-                    formControlName="stock" > 
+                    formControlName="stock"  > 
+                    <span class="form-text text-danger" 
+                    *ngIf="InvalidField( 'stock' )">
+                  Stock must be greater than or equal to 0.</span>
 
                 </div>
             </div>
@@ -98,6 +103,9 @@
         
                 <span>CustomDirective</span>
                 <pre>{{myForm.controls['stock'].errors | json}}</pre>
+
+                <span>Price</span>
+                <pre>{{myForm.controls['price'].errors | json}}</pre>
         
             </div>
         </div>

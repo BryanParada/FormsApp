@@ -16,12 +16,15 @@ export class BasicsComponent{
   // })
 
   myForm: FormGroup = this.fb.group({
-    name : ['RTX 4080ti', [Validators.required, Validators.minLength(3)]   ],  //valor del campo, validador sincrono, validador asincrono
-    price: [1500, [Validators.required, Validators.min(0)]],
-    stock: [5, [Validators.required, Validators.min(0)]],
+    name : ['', [Validators.required, Validators.minLength(3)]   ],  //valor del campo, validador sincrono, validador asincrono
+    price: [0, [Validators.required, Validators.min(0)]],
+    stock: [0, [Validators.required, Validators.min(0)]],
   })
 
   constructor( private fb: FormBuilder) { }
  
+  InvalidField(field: string){
+    return this.myForm.controls[field].errors && this.myForm.controls[field].touched
+  }
 
 }
