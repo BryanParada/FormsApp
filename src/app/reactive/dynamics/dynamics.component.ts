@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamics',
@@ -11,9 +11,17 @@ export class DynamicsComponent  {
 
   //myform    form builder
   myFormDynamics: FormGroup = this.fb.group({
-    name : ['', [Validators.required, Validators.minLength(3)]   ] //valor del campo, validador sincrono, validador asincrono
+    name     : ['', [Validators.required, Validators.minLength(3)]   ], //valor del campo, validador sincrono, validador asincrono
+    favorites: this.fb.array( [
+      ['Metal Gear',Validators.required],
+      ['Death Stranding',Validators.required],
+    ], Validators.required )
  
   })
+
+  get favoritesArr(){
+    return this.myFormDynamics.get('favorites') as FormArray;
+  }
 
   constructor( private fb: FormBuilder) { }
 

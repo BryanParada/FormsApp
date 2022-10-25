@@ -39,19 +39,21 @@
     <!-- Favorite games list -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favorites</label>
-        <div class="col-sm-9">
+        <div class="col-sm-9" formArrayName="favorites">
 
             <div class="input-group" 
-                ngClass=" mb-1" >
+                ngClass=" mb-1" 
+                *ngFor="let favorite of favoritesArr.controls; let i = index">
                 
-                <input class="form-control"> 
+                <input class="form-control"
+                       [formControlName]="i"> 
 
                         <button class="btn btn-outline-danger" 
                                 type="button">
                             Remove
-                        </button>
-                        
+                        </button> 
             </div>
+
         </div>
     </div>
 
@@ -73,19 +75,25 @@
 
 
 
-<!-- <div class="card">
+ <div class="card">
     
     <div class="card-body">
       <h5 class="card-title">Json Results</h5>
       <div class="card-text">
 
-<span>
+<span>Valid</span>
+<pre>{{ myFormDynamics.valid }}</pre>
+<br>
+
+<span>Value</span>
+<pre>{{ myFormDynamics.value | json}}</pre>
+<!-- <span>
     Person
 </span>
 
 <pre>{{ person | json }}</pre>
-
+ -->
 
         </div> 
     </div>
-</div> -->
+</div>  
