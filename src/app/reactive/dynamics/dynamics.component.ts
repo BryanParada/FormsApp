@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamics',
@@ -6,11 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class DynamicsComponent implements OnInit {
+export class DynamicsComponent  {
 
-  constructor() { }
+  //myform    form builder
+  myFormDynamics: FormGroup = this.fb.group({
+    name : ['', [Validators.required, Validators.minLength(3)]   ] //valor del campo, validador sincrono, validador asincrono
+ 
+  })
 
-  ngOnInit(): void {
+  constructor( private fb: FormBuilder) { }
+
+  InvalidField(field: string){
+    return this.myFormDynamics.controls[field].errors && this.myFormDynamics.controls[field].touched
   }
+
+  save(){
+    //imprimir valor form solo si es valido
+    if (this.myFormDynamics.invalid){ 
+      this.myFormDynamics.markAllAsTouched();
+      return;
+    }
+
+    console.log(this.myFormDynamics.value);
+    
+
+  }
+
+
+
 
 }

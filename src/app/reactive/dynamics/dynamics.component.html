@@ -1,16 +1,18 @@
 <h2>Reactive: <small>Dinamics</small></h2>
 <hr>
 
-<form  autocomplete="off" >
+<form  autocomplete="off" [formGroup]="myFormDynamics" (ngSubmit)="save()">
 
         <!-- Name -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-9">
             <input class="form-control" 
-                    placeholder="Name of the person"  >
-                    <span class="form-text text-danger" 
-                            >This field is required</span>
+                    placeholder="Name of the person" 
+                    formControlName="name"  >
+                    <span class="form-text text-danger"  
+                          *ngIf="InvalidField( 'name' )"
+                    >This field is required</span>
         </div>
     </div>
 
@@ -25,7 +27,8 @@
                     placeholder="Add favorites" 
                     name="newGame"  >
                     <button class="btn btn-outline-primary"
-                            type="button" >
+                            type="button"
+                             >
                         Add
                     </button>
             </div>
@@ -59,7 +62,10 @@
     <div class="row"> 
         <div class="col-sm-12">
         <button type="button"
-                class="btn btn-primary float-end" > Save </button>
+                class="btn btn-primary float-end" 
+                type="submit" >
+                <!-- (click)="save()"" -->
+                 Save </button>
         </div>
     </div>
 
