@@ -15,7 +15,7 @@ export class DynamicsComponent  {
     favorites: this.fb.array( [
       ['Metal Gear',Validators.required],
       ['Death Stranding',Validators.required],
-    ], Validators.required )
+    ], Validators.required ) //<-- si borramos todos los favoritos el form no sera valido
  
   })
 
@@ -36,10 +36,16 @@ export class DynamicsComponent  {
 
     this.favoritesArr.push( new FormControl( this.newFavorite.value, Validators.required ));
     //this.favoritesArr.push( this.fb.control( this.newFavorite.value, Validators.required ));
-    
+
     //resetear campo
     this.newFavorite.reset();
 
+  }
+
+  removeFavorite(index: number){
+    console.log('Removed ', index);
+
+    this.favoritesArr.removeAt(index); 
   }
 
   save(){
