@@ -1,6 +1,31 @@
 # FormsApp
 
+![formsapp](https://user-images.githubusercontent.com/51382458/198109993-e7726017-f985-4508-938f-c1602a59335b.png)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+
+## How to use?
+
+Clone/Download this project, run the commands "npm install" and "ng serve -o" to open the app.
+Download the DB from my other project: https://github.com/bparadac/FormsAppDB
+
+To run this db is required to install Json Server via npm with the next command:
+
+npm install -g json-server
+
+to start Json Server:
+
+json-server --watch db.json
+
+more info at: 
+https://www.npmjs.com/package/json-server
+
+## Built with
+
+* ![Angular][Angular.io]
+* ![TypeScript][TypeScript.io]
+* ![Bootstrap][Bootstrap.io]
 
 ## Development server
 
@@ -25,3 +50,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+[Angular.io]: https://img.shields.io/badge/-Angular-red
+[TypeScript.io]: https://img.shields.io/badge/-TypeScript-blue
+[Bootstrap.io]: https://img.shields.io/badge/-Bootstrap%205-blueviolet
