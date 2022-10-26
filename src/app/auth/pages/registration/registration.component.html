@@ -54,7 +54,10 @@
                     <div class="col-sm-9">
                             <input type="password" 
                                     class="form-control"
+                                    formControlName="password"
                                     placeholder="Password"> 
+                                    <span class="form-text text-danger" 
+                                    *ngIf="invalidField('password')">Password must contain at least 6 characters </span>
                     </div>
                 </div>
 
@@ -64,7 +67,10 @@
                     <div class="col-sm-9">
                             <input type="password" 
                                     class="form-control"
+                                    formControlName="password2"
                                     placeholder="Confirm Password"> 
+                                    <span class="form-text text-danger" 
+                                    *ngIf="invalidField('password2')">Password confirmation must be the same </span>
                     </div>
                 </div>
 
@@ -80,9 +86,9 @@
     </div>
 </div>
 
-<h2>Form Valid: {{myFormRegistration.valid}}
-</h2>
-
+<h2>Form Valid:</h2> {{myFormRegistration.valid}} 
+<h2>Form Errors:</h2> {{myFormRegistration.errors | json}} 
+<hr>
 <h5>Name</h5>
 <pre>{{ myFormRegistration.controls['name'].errors | json}}</pre>
 
@@ -91,3 +97,9 @@
 
 <h5>Username</h5>
 <pre>{{ myFormRegistration.controls['username'].errors | json}}</pre>
+
+<h5>Password</h5>
+<pre>{{ myFormRegistration.controls['password'].errors | json}}</pre>
+
+<h5>Password confirmation</h5>
+<pre>{{ myFormRegistration.controls['password2'].errors | json}}</pre>

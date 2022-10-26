@@ -14,9 +14,14 @@ export class RegistrationComponent implements OnInit {
  
  
   myFormRegistration: FormGroup = this.fb.group({
-    name    : ['', [Validators.required, Validators.pattern( this.vs.name_lastnamePattern)] ],
-    email   : ['', [Validators.required, Validators.pattern( this.vs.emailPattern ) ] ],
-    username: ['', [Validators.required, this.vs.cantBeStrider] ]
+    name     : ['', [Validators.required, Validators.pattern( this.vs.name_lastnamePattern)] ],
+    email    : ['', [Validators.required, Validators.pattern( this.vs.emailPattern ) ] ],
+    username : ['', [Validators.required, this.vs.cantBeStrider] ],
+    password : ['', [Validators.required, Validators.minLength(6)] ],
+    password2: ['', [Validators.required] ],
+
+  },{
+    validators: [ this.vs.sameFields('password','password2')]
   })
 
   constructor( private fb: FormBuilder,
