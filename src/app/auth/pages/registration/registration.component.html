@@ -27,7 +27,11 @@
                     <div class="col-sm-9">
                             <input type="email" 
                                     class="form-control"
-                                    placeholder="Email"> 
+                                    placeholder="Email"
+                                    formControlName="email"> 
+
+                                    <span class="form-text text-danger" 
+                                    *ngIf="invalidField('email')">Email is required</span>
                     </div>
                 </div>
                 
@@ -78,3 +82,6 @@
 
 <h5>Name</h5>
 <pre>{{ myFormRegistration.controls['name'].errors | json}}</pre>
+
+<h5>Email</h5>
+<pre>{{ myFormRegistration.controls['email'].errors | json}}</pre>
