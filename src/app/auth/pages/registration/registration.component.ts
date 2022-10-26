@@ -45,6 +45,24 @@ export class RegistrationComponent implements OnInit {
           && this.myFormRegistration.get(field)?.touched
   }
 
+  emailRequired(){
+    return this.myFormRegistration.get('email')?.errors?.['required']
+            && this.myFormRegistration.get('email')?.touched 
+             
+  }
+
+  emailFormat(){
+    return this.myFormRegistration.get('email')?.errors?.['pattern']
+    && this.myFormRegistration.get('email')?.touched 
+             
+  }
+
+  emailTaken(){
+    return this.myFormRegistration.get('email')?.errors?.['emailTaken']
+    && this.myFormRegistration.get('email')?.touched 
+             
+  }
+
   submitForm(){
     console.log(this.myFormRegistration.value);
     this.myFormRegistration.markAllAsTouched;
