@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { cantBeStrider, emailPattern, name_lastnamePattern } from 'src/app/shared/Validations/validations';
+import { ValidatorService } from '../../../shared/Validations/validator.service';
 
 @Component({
   selector: 'app-registration',
@@ -8,32 +10,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   ]
 })
 export class RegistrationComponent implements OnInit {
-
-  //TODO: TEMPORAL
-  name_lastnamePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
-  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
-  // '([a-zA-Z]+) (.+[a-zA-Z]+).+$'; // para 2 apellidos Te obliga a escribir al menos 2 palabras, pero te permite añadir 3 o más.
-
-  cantBeStrider(control: FormControl){
-    const value: string = control.value?.trim().toLowerCase();
-    // console.log(value);
-    
-    if (value === 'strider'){
-      return {
-        noStrider: true
-      }
-    }
-    return null;
-    
-  }
-
+ 
+ 
   myFormRegistration: FormGroup = this.fb.group({
-    name    : ['', [Validators.required, Validators.pattern( this.name_lastnamePattern)] ],
-    email   : ['', [Validators.required, Validators.pattern( this.emailPattern ) ] ],
-    username: ['', [Validators.required, this.cantBeStrider] ]
+    name    : ['', [Validators.required, Validators.pattern( name_lastnamePattern)] ],
+    email   : ['', [Validators.required, Validators.pattern( emailPattern ) ] ],
+    username: ['', [Validators.required, cantBeStrider] ]
   })
 
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder ) { }
 
   ngOnInit(): void {
     this.myFormRegistration.reset({
