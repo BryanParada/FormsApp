@@ -33,7 +33,10 @@ export class RegistrationComponent implements OnInit {
     this.myFormRegistration.reset({
       name: 'Bryan Parada',
       email: 'test1@test.com',
-      username: 'bparadac'
+      username: 'bparadac',
+      password: '123456',
+      password2: '123456'
+
     })
   }
 
