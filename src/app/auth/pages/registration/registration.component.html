@@ -31,11 +31,7 @@
                                     formControlName="email"> 
 
                                     <span class="form-text text-danger" 
-                                    *ngIf="emailRequired()">Email is Required</span>
-                                    <span class="form-text text-danger" 
-                                    *ngIf="emailFormat()">Email is not valid. (example@gmail.com)</span>
-                                    <span class="form-text text-danger" 
-                                    *ngIf="emailTaken()">Email is already taken</span>
+                                    *ngIf="emailErrorMsg">{{emailErrorMsg}}</span> 
                     </div>
                 </div>
                 
