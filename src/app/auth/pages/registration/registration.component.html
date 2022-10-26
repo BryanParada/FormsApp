@@ -41,7 +41,10 @@
                     <div class="col-sm-9">
                             <input type="text" 
                                     class="form-control"
+                                    formControlName="username"
                                     placeholder="UserName"> 
+                                    <span class="form-text text-danger" 
+                                    *ngIf="invalidField('username')">Username is already taken</span>
                     </div>
                 </div>
 
@@ -85,3 +88,6 @@
 
 <h5>Email</h5>
 <pre>{{ myFormRegistration.controls['email'].errors | json}}</pre>
+
+<h5>Username</h5>
+<pre>{{ myFormRegistration.controls['username'].errors | json}}</pre>
